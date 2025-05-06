@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*Esto es CSS*/ 
+        #titulo-muy-especial {
+            /*Selector por id*/
+            margin: 1px;
+            margin-top: 2px;
+            margin-bottom: 3px;
+            margin-left: 4px;
+            margin-right: 5px;
+            margin: 10px 20px 30px 40px;
+            margin-left: 1px;
+            margin-left: 10000px;
+            margin-left: 5px;
+        }
+        /*Selector por nombre de etiqueta*/
+        h1, h2, h3, h4, h5, h6{
+            margin: 10px;
+            padding: 15px;
+            padding: 10px 20px 30px 40px;
+            padding-left: 1px;
+            padding-top: 2px;
+            padding-right: 2[x];
+            padding-bottom: 2px;
+            border: green 1px solid;
+            border-color: green;
+            border-width: 14px;
+            border-style: dashed;
+
+        }
+        .listas-ordenadas-mayusculas{
+            list-style-type: upper-alpha; /*Para enlistar con letras*/
+        }
+        .listas-ordenadas-romana{
+            list-style-type: upper-roman; /*Para enlistar con numeros romanos*/
+        }
+        /*LI tiene un hijo de tipo a*/
+        /*Esto significa que If existe un anlca que este dentro de un LI*/
+        ol > li:hover{ /*Cuando paso el mouse encima*/
+            background-color: orange;
+        }
+        ol > li:first-child{
+            background-color: red;
+        }
+        ol > li:nth-child(4){ 
+            background-color: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1 id="titulo-muy-especial" 
+        style="
+        color: brown;
+        background-color: Black;
+        ">
+        Hola Mundo
+    </h1>
+    <h2>Hola Mundo</h2>
+    <h3>Hola Mundo</h3>
+    <h4>Hola Mundo</h4>
+    <h5>Hola Mundo</h5>
+    <h6>Hola Mundo</h6>
+
+    <a href="www.google.com" target="_Blank">
+        Google
+    </a>
+
+    <ul>
+        <li>
+            <a href="/index.html">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="/Prácticas Lab/a-tablas-anclas.html">
+                Tablas y anclas
+            </a>
+        </li>
+        <li>
+            <a href="/index.html">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="/Prácticas Lab/a-tablas-anclas.html">
+                Tablas y anclas
+            </a>
+        </li>
+    </ul>
+
+    <ol class="listas-ordenadas-mayusculas">
+        <li>Lunes</li>
+        <ul>
+            <li>a</li>
+            <li>b</li>
+        </ul>
+        <li>Martes</li>
+        <ol class="listas-ordenadas-romana">
+            <li>uno</li>
+            <li>dos</li>
+            <li>tres</li>
+        </ol>
+        <li>Miercoles</li>
+    </ol>
+
+    <p>Links Internos (#)</p>
+    <ul>
+        <li>
+            <a href="#Parrafo 1">
+                Ir Parrafo 1
+            </a>
+        </li>
+        <li>
+            <a href="#Parrafo 2">
+                Ir Parrafo 2
+            </a>
+        </li>
+    </ul>
+
+    <p id="Parrafo 1">Parrafo 1</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="Parrafo 2">Parrafo 2</p>
+    <br>
+    <br>
+
+
+
+    <h2>Imagenes</h2>
+    <img src="https://i.pinimg.com/564x/92/0b/9f/920b9fea0556bfe45a9a05f4e9fc6e9c.jpg" 
+    alt="Erick Cartman">
+
+    <table>
+        <!-- Una tabla siempre tiene un Table row (tr)-->
+         <tr>
+            <th>
+                Nombre
+            </th> <!--Table Header-->
+            <th>
+                Apellido
+            </th>
+            <th>
+                Nota
+            </th>
+         </tr>
+         <tr>
+            <!--Table dictare-->
+            <td>
+                Dylan
+            </td>
+            <td>
+                Claudio
+            </td>
+            <td>
+                10
+            </td>
+            <tr>
+                <td>Dennis</td>
+                <td>Claudio</td>
+                <td>10</td>
+            </tr>
+         </tr>
+    </table>
+
+
+</body>
+</html>
