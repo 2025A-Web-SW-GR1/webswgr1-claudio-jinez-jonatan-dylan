@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McDonald's Ecuador: Hamburguesas y más</title>
+  <link rel="icon" href="imagenes/icono-mcdonalds.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .hero-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .hero-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flipped-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: scaleX(-1);
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.7) 0%,
+        rgba(0,0,0,0.5) 30%,
+        rgba(0,0,0,0.3) 60%,
+        rgba(0,0,0,0) 100%
+      );
+      z-index: 1;
+    }
+
+    /* Contenedor para menú y logo */
+    .menu-container {
+      position: absolute;
+      top: 47px;
+      left: 63px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      z-index: 2;
+    }
+
+    .menu-icon {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-icon span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+
+    /* Estilos para la imagen pequeña */
+    .menu-logo {
+      height: 25px; /* Tamaño controlado */
+      width: auto; /* Mantiene proporción */
+      max-width: 40px; /* Límite máximo */
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 150px;
+      left: 109px;
+      display: flex;
+      gap: 45px;
+      color: white;
+      font-size: 17px;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .enter-button {
+      position: absolute;
+      top: 50px;
+      right: 58px;
+      background-color: #FFC300;
+      border: none;
+      padding: 11px 57px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 2;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 rgba(255, 195, 0, 0);
+    }
+
+    .enter-button:hover {
+      background-color: #FFD700;
+    }
+
+    .hero-text {
+      font-family: 'Montserrat', sans-serif;
+      position: absolute;
+      top: 48%;
+      left: 109px;
+      transform: translateY(-50%);
+      z-index: 2;
+      color: white;
+      font-size: 43px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      position: absolute;
+      top: calc(48% + 46px);
+      left: 109px;
+      display: flex;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .buttons button {
+      padding: 11px 25px;
+      font-weight: bold;
+      border: none;
+      border-radius: 7px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      font-size: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .buttons button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Nueva sección de categorías */
+    .categories-container {
+      padding: 40px 20px;
+      background-color: #f7f7f7;
+      overflow-x: auto; /* Para scroll horizontal en móviles */
+      white-space: nowrap; /* Mantiene todo en una línea */
+      text-align: center;
+    }
+
+    .categories-row {
+      display: inline-flex;
+      gap: 15px;
+      padding: 10px 0;
+    }
+
+    .category-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100px; /* Ancho fijo */
+      height: 100px; /* Alto fijo */
+      background-color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border: none;
+      padding: 10px;
+    }
+
+    .category-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .category-btn img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      transition: all 0.3s ease;
+    }
+
+    .category-btn:hover img {
+      transform: scale(1.2);
+    }
+
+    .category-btn p {
+      margin: 8px 0 0;
+      font-size: 12px;
+      font-weight: bold;
+      color: #27251F;
+      transition: all 0.3s ease;
+    }
+
+    .category-btn:hover p {
+      color: #DA291C;
+    }
+
+    /* Nueva sección de presentación */
+   .side-by-side-section {
+      padding: 80px 40px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .text-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .side-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      color: #27251F;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .side-subtitle {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 24px;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .image-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+
+    .side-image {
+      width: 70%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .side-image:hover {
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+      .side-by-side-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 60px 20px;
+      }
+      
+      .text-content, .image-content {
+        min-width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="hero-container">
+    <img class="flipped-image" src="imagenes/inicio-hamburguesa.jpg" alt="Imagen de inicio de McDonald's">
+    <div class="gradient-overlay"></div>
+
+    <!-- Contenedor para menú y logo -->
+    <div class="menu-container">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- Imagen pequeña junto al menú -->
+      <img class="menu-logo" src="imagenes/icono-mcdonalds.png" alt="Logo McDonald's">
+    </div>
+
+    <!-- Links del menú superior -->
+    <div class="nav-links">
+      <div>Productos</div>
+      <div>En familia</div>
+      <div>Receta del Futuro</div>
+    </div>
+
+    <!-- Botón Entrar -->
+    <button class="enter-button">Entrar</button>
+
+    <!-- Texto principal -->
+    <div class="hero-text">Cómo quieres hoy tu pedido</div>
+
+    <!-- Botones de acción -->
+    <div class="buttons">
+      <button>📍 Pide y Retira</button>
+      <button>🚗 McDelivery</button>
+    </div>
+  </div>
+
+<!-- Sección de categorías -->
+  <!-- Nueva sección de categorías como botones -->
+  <div class="categories-container">
+    <div class="categories-row">
+      <button class="category-btn">
+        <img src="imagenes/hamburguesas.png" alt="Hamburguesas">
+        <p>Hamburguesas</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/hamburguesapollo.png" alt="Pollo">
+        <p>Pollo</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/paraacompañar.png" alt="Para acompañar">
+        <p>Para acompañar</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/bebidas.png" alt="Bebidas">
+        <p>Bebidas</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/postres.png" alt="Postres">
+        <p>Postres</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/desayunos.png" alt="Desayunos">
+        <p>Desayunos</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/mccafe.png" alt="McCafé">
+        <p>McCafé</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/cajitafeliz.png" alt="Cajita Feliz">
+        <p>Cajita Feliz</p>
+      </button>
+      <button class="category-btn">
+        <img src="imagenes/mccombos.png" alt="McCombos">
+        <p>McCombos</p>
+      </button>
+    </div>
+
+    <!-- Sección de presentación -->
+    <section class="side-by-side-section">
+    <div class="text-content">
+      <h1 class="side-title">McDonald's</h1>
+      <p class="side-subtitle">Más que una hamburguesería</p>
+    </div>
+    
+    <div class="image-content">
+      <!-- Reemplaza con tu imagen de hamburguesa -->
+      <img class="side-image" src="imagenes/imagen-servicio.png" alt="Experiencia McDonald's">
+    </div>
+  </section>
+  </div>
+</body>
+</html>
