@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>McDonald's Ecuador: Hamburguesas y más</title>
+  <title>McDonald's: tu hamburguesas y más</title>
   <link rel="icon" href="imagenes/icono-mcdonalds.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
   <style>
@@ -258,6 +258,58 @@
       transform: scale(1.02);
     }
 
+   /* Nueva sección de dos imágenes */
+    .dual-images-section {
+      padding: 60px 20px;
+      background-color: white;
+      text-align: center;
+    }
+
+    .dual-images-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .image-with-text {
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .dual-image {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .dual-image:hover {
+      transform: scale(1.03);
+    }
+
+    .image-caption {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #27251F;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #27251F;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
     @media (max-width: 768px) {
       .side-by-side-section {
         flex-direction: column;
@@ -268,7 +320,266 @@
       .text-content, .image-content {
         min-width: 100%;
       }
+
+      .dual-images-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
     }
+
+    /* Estilos para alinear imágenes y texto */
+  .dual-images-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    align-items: stretch; /* Para que todas tengan la misma altura */
+  }
+
+  .image-with-text {
+    width: 400px; /* Ancho fijo para ambas */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dual-image {
+    width: 100%;
+    height: 250px; /* Altura fija para ambas imágenes */
+    object-fit: cover; /* Para que mantengan proporción */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .image-caption {
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #27251F;
+    flex-grow: 1; /* Para que el texto ocupe el mismo espacio */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px; /* Altura mínima para el texto */
+  }
+
+  /* Contenedor para la tercera imagen */
+  .third-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .dual-images-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    
+    .image-with-text {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .dual-image {
+      height: 200px;
+    }
+  }
+
+  /* Estilos para el banner */
+  .banner-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .banner-container {
+      padding: 0 10px;
+      margin: 30px auto;
+    }
+  }
+
+  .faq-section {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2.6rem; /* Más grande que antes */
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #27251F;
+}
+.faq-item {
+  cursor: pointer;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem; /* separación entre preguntas */
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem; /* Aumentado */
+  font-weight: normal; /* Sin negrita por defecto */
+  color: #27251F;
+  transition: all 0.3s ease;
+}
+
+.faq-answer {
+  display: none;
+  padding-top: 1.9rem;
+  padding-left: 1rem;
+  font-size: 0.87rem;
+  text-align: left;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* Flecha SVG estilo chevron */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Cuando está activa (desplegada) */
+.faq-item.active .faq-question {
+  font-weight: bold; /* Se pone en negrita solo si está desplegada */
+}
+
+.registro-banner {
+  background-color: #FFC72C; /* Amarillo McDonald's */
+  padding: 1.5rem 1rem;
+  margin: 0 auto;
+}
+
+.registro-contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.registro-texto h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #27251F;
+  margin-bottom: 0.5rem;
+}
+
+.registro-texto p {
+  font-size: 1.3rem;
+  color: #27251F;
+}
+
+.registro-boton {
+  background-color: #fff;
+  border: 1px solid #27251F;
+  color: #27251F;
+  font-weight: bold;
+  padding: 0.8rem 4.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registro-boton:hover {
+  background-color: #27251F;
+  color: #fff;
+}
+
+.footer {
+  background-color: #f7f7f7;
+  padding: 2rem 1rem;
+  border-top: 1px solid #ccc;
+}
+
+.footer-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-logo img {
+  width: 60px;
+  margin-right: 1rem;
+}
+
+.footer-secciones {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-columna {
+  min-width: 180px;
+  margin: 1rem 0;
+}
+
+.footer-columna h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+.footer-columna ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-columna ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-columna ul li a {
+  text-decoration: none;
+  color: #222;
+  transition: color 0.2s ease;
+}
+
+.footer-columna ul li a:hover {
+  color: #fbc02d; /* color amarillo suave */
+}
+
+.redes-sociales a img,
+.app-store a img {
+  width: 32px;
+  height: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.app-store a img {
+  width: 120px;
+  margin-top: 0.5rem;
+}
 
   </style>
 </head>
@@ -363,5 +674,177 @@
     </div>
   </section>
   </div>
+
+  <!-- Sección de dos imágenes con texto -->
+  <section class="dual-images-section">
+    <div class="dual-images-container">
+      <div class="image-with-text">
+        <!-- Reemplaza con tu primera imagen -->
+        <img class="dual-image" src="imagenes/imagen1.jpg" alt="Opción 1">
+        <p class="image-caption">Pide a casa o recoge tu pedido en el restaurante que prefieras</p>
+      </div>
+      
+      <div class="image-with-text">
+        <!-- Reemplaza con tu segunda imagen -->
+        <img class="dual-image" src="imagenes/imagen2.png" alt="Opción 2">
+        <p class="image-caption">Disfruta de grandes descuentos y beneficios solo por registrarte</p>
+      </div>
+    </div>
+    
+    <!-- Tercera imagen centrada -->
+    <div class="third-image-container">
+      <div class="image-with-text">
+        <!-- Reemplaza con tu tercera imagen -->
+        <img class="dual-image" src="imagenes/imagen3.png" alt="Experiencia McDonald's">
+        <p class="image-caption">La experiencia McDonald's 100% pensada para ti y para los tuyos</p>
+      </div>
+    </div>
+
+    <!-- Banner ancho -->
+    <div class="banner-container">
+      <img class="banner-image" src="imagenes/banner.jpeg" alt="Banner promocional">
+    </div>
+
+    <div class="faq-section">
+  <h2 class="faq-title">¿Necesitas alguna razón más?</h2>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="question-text">¿Qué medios de pago acepta McDonald´s?</span>
+      <svg class="arrow" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="faq-answer">
+      Puedes realizar tu compra con tarjetas de débito y crédito, Mastercard, Visa.
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="question-text">¿Cómo puedo cancelar mi pedido?</span>
+      <svg class="arrow" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="faq-answer">
+      Si aún no fue preparado, puedes cancelarlo rápidamente desde el botón “Cancelar pedido” que se encuentra en la pantalla de confirmación. De lo contrario, deberás comunicarte con el Call Center (012081038).
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="question-text">Seguimiento del estado de mi pedido</span>
+      <svg class="arrow" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="faq-answer">
+      Desde el Menú, Mis Pedidos, seleccionando la opción Pedidos en Curso, puedes seguir en tiempo real el estado del mismo, o también hacer clic en el link que figura en el email de confirmación de pedido recibido.
+    </div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="question-text">Mi pedido no llegó como esperaba</span>
+      <svg class="arrow" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="faq-answer">
+      ¡Lamentamos el inconveniente! Si tu pedido llegó frío, incompleto o tuviste otro inconveniente, comunícate con el Call Center (012081038) para que podamos brindarte una solución personalizada.
+    </div>
+  </div>
+
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="question-text">Mi tarjeta ha sido rechazada</span>
+      <svg class="arrow" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="faq-answer">
+      Si tu tarjeta de débito ha sido rechazada, verifica, en primr lugar, en tu banco emisor si debe ser habilitada para compras en eCommerce, o Compras por internet en tu home banking.
+    </div>
+  </div>
+
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span class="question-text">Confirmación de compra</span>
+       <svg class="arrow" width="22" height="22" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="faq-answer">
+      Recibirás una confirmación de compra por mail con los datos de la transacción y lo verás también reflejado en la app. De no ser así, comunícate con el Call Center (012081038) para que podamos brindarte una solución personalizada.
+    </div>
+  </div>
+</div>
+  </section>
+
+  <section class="registro-banner">
+  <div class="registro-contenido">
+    <div class="registro-texto">
+      <h2>Regístrate y disfruta de la experiencia completa:</h2>
+      <p><strong>Ofertas, descuentos, compras y muchas, muchas sorpresas</strong></p>
+    </div>
+    <button class="registro-boton">Ingresa ya!</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-contenido">
+    <div class="footer-logo">
+      <img src="imagenes/icono-mcdonalds.png" alt="Logo McDonald's" />
+    </div>
+
+    <div class="footer-secciones">
+      <div class="footer-columna">
+        <h3>Sobre Nosotros</h3>
+        <ul>
+          <li><a href="#">Restaurantes</a></li>
+          <li><a href="#">Quiénes Somos</a></li>
+          <li><a href="#">Compromiso Social</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#">Con las familias</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Protección Datos Personales</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-columna">
+        <h3>Descubre</h3>
+        <ul>
+          <li><a href="#">Cajita Feliz</a></li>
+          <li><a href="#">Land Roblox</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-columna">
+        <h3>Contacto</h3>
+        <p>Sigue disfrutando en nuestras redes sociales</p>
+        <div class="redes-sociales">
+          <a href="#"><img src="imagenes/facebook-icono.png" alt="Facebook" /></a>
+          <a href="#"><img src="imagenes/youtube-icono.png" alt="YouTube" /></a>
+          <a href="#"><img src="imagenes/x-icono.png" alt="X/Twitter" /></a>
+        </div>
+        <p>O descarga nuestra app y multiplica la diversión</p>
+        <div class="app-store">
+          <a href="#"><img src="imagenes/appstore.png" alt="App Store" /></a>
+          <a href="#"><img src="imagenes/google play.png" alt="Google Play" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+  function toggleFaq(item) {
+  item.classList.toggle("active");
+}
+</script>
 </body>
 </html>
