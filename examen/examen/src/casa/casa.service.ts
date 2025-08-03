@@ -21,7 +21,10 @@ export class CasaService {
     ) {
         let nuevaInstancia = this.casaRepository.create();
         nuevaInstancia = {
+            ...nuevaInstancia,
             ...valoresAActualizar,
+            username: (valoresAActualizar as any).username ?? '',
+            password: (valoresAActualizar as any).password ?? '',
         }
         return this.casaRepository.save(nuevaInstancia);
     }

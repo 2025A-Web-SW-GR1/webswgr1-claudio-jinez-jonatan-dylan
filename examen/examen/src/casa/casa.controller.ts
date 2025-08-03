@@ -91,7 +91,6 @@ export class CasaController {
         throw new BadRequestException('No se encontro el registro');
     }
 
-
     // Como subir un archivo al servidor, docs:
     // https://docs.nestjs.com/techniques/file-upload
     // Instalar el paquete:
