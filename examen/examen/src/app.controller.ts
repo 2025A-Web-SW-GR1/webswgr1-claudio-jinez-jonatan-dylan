@@ -1,35 +1,3 @@
-/* Realizar servicio REST con la siguiente configuración:
- 
-- Obtener uno
-Método: GET
-URL: /casa
-Codigo Respuesta: 200
-Return : [{ id:1, nombre:"Casa 1"}, { id:2, nombre:"Casa 2"}]
- 
-En este caso si nos envían el parámetro de respuesta "idCasa" devolvemos solamente el objeto de la casa correspondiente,
- 
- 
-Ejemplo1:
- 
-Método: GET
-URL: /casa?idCasa=1
-Codigo Respuesta: 200
-Return : [{ id:1, nombre:"Casa 1"}]
- 
-Ejemplo2:
- 
-Método: GET
-URL: /casa?idCasa=2
-Codigo Respuesta: 200
-Return : [{ id:1, nombre:"Casa 2"}]
- 
-Ejemplo3:
- 
-Método: GET
-URL: /casa?idCasa=3
-Codigo Respuesta: 404
-Return : "No se encuentra" */
-
 import { 
   Controller, Get, Param, Query, Headers,
   Post, Body, HttpCode, NotFoundException } from '@nestjs/common';
